@@ -15,6 +15,8 @@
 		2FCA50B91F2FF533005C9AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCA50B71F2FF533005C9AA6 /* LaunchScreen.storyboard */; };
 		2FCA50C41F2FF533005C9AA6 /* MedSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50C31F2FF533005C9AA6 /* MedSampleAppTests.swift */; };
 		2FCA50CF1F2FF533005C9AA6 /* MedSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50CE1F2FF533005C9AA6 /* MedSampleAppUITests.swift */; };
+		2FCA50DD1F30FC0E005C9AA6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */; };
+		2FCA50DF1F30FCD6005C9AA6 /* WeightRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2FCA50CA1F2FF533005C9AA6 /* MedSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCA50CE1F2FF533005C9AA6 /* MedSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedSampleAppUITests.swift; sourceTree = "<group>"; };
 		2FCA50D01F2FF533005C9AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				2FCA50B51F2FF533005C9AA6 /* Assets.xcassets */,
 				2FCA50B71F2FF533005C9AA6 /* LaunchScreen.storyboard */,
 				2FCA50BA1F2FF533005C9AA6 /* Info.plist */,
+				2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */,
+				2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */,
 			);
 			path = MedSampleApp;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FCA50B11F2FF533005C9AA6 /* SecondViewController.swift in Sources */,
+				2FCA50DF1F30FCD6005C9AA6 /* WeightRecord.swift in Sources */,
+				2FCA50DD1F30FC0E005C9AA6 /* DataManager.swift in Sources */,
 				2FCA50AD1F2FF533005C9AA6 /* AppDelegate.swift in Sources */,
 				2FCA50AF1F2FF533005C9AA6 /* InputViewController.swift in Sources */,
 			);

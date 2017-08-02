@@ -68,6 +68,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveWeight:" destination="9pv-A4-QxB" eventType="touchUpInside" id="2b4-Ct-Fwj"/>
+                                </connections>
                             </button>
                             <textField clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kg/lb" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3D-Ub-j9B">
                                 <rect key="frame" x="269" y="166" width="47" height="30"/>

@@ -10,7 +10,10 @@ import UIKit
 
 class InputViewController: UIViewController {
 
-    // Mark: properties
+    // Controller: DataManager
+    let dataManager = DataManager.instance
+
+    // UI outlets.
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var weightUnit: UITextField!
@@ -36,8 +39,11 @@ class InputViewController: UIViewController {
     }
 
     @IBAction func saveWeight(_ sender: UIButton) {
-        // ToDo
-        
+        // Gets the double number from user text input and insert it on the model.
+        if let text = weight.text {
+            let doubleValue = Double(text)!
+            dataManager.insertNewRecord(date: Date(), weight: doubleValue)
+        }
         // Hide keyboard
         weight.resignFirstResponder()
     }
