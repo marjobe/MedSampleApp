@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FCA50AD1F2FF533005C9AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50AC1F2FF533005C9AA6 /* AppDelegate.swift */; };
 		2FCA50AF1F2FF533005C9AA6 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50AE1F2FF533005C9AA6 /* InputViewController.swift */; };
-		2FCA50B11F2FF533005C9AA6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50B01F2FF533005C9AA6 /* SecondViewController.swift */; };
+		2FCA50B11F2FF533005C9AA6 /* HistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50B01F2FF533005C9AA6 /* HistoricViewController.swift */; };
 		2FCA50B41F2FF533005C9AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCA50B21F2FF533005C9AA6 /* Main.storyboard */; };
 		2FCA50B61F2FF533005C9AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCA50B51F2FF533005C9AA6 /* Assets.xcassets */; };
 		2FCA50B91F2FF533005C9AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCA50B71F2FF533005C9AA6 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,7 @@
 		2FCA50CF1F2FF533005C9AA6 /* MedSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50CE1F2FF533005C9AA6 /* MedSampleAppUITests.swift */; };
 		2FCA50DD1F30FC0E005C9AA6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */; };
 		2FCA50DF1F30FCD6005C9AA6 /* WeightRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */; };
+		2FCA50E11F3168CE005C9AA6 /* WeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,7 @@
 		2FCA50A91F2FF533005C9AA6 /* MedSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCA50AC1F2FF533005C9AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FCA50AE1F2FF533005C9AA6 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
-		2FCA50B01F2FF533005C9AA6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2FCA50B01F2FF533005C9AA6 /* HistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewController.swift; sourceTree = "<group>"; };
 		2FCA50B31F2FF533005C9AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FCA50B51F2FF533005C9AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FCA50B81F2FF533005C9AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		2FCA50D01F2FF533005C9AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightRecord.swift; sourceTree = "<group>"; };
+		2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +107,14 @@
 			children = (
 				2FCA50AC1F2FF533005C9AA6 /* AppDelegate.swift */,
 				2FCA50AE1F2FF533005C9AA6 /* InputViewController.swift */,
-				2FCA50B01F2FF533005C9AA6 /* SecondViewController.swift */,
+				2FCA50B01F2FF533005C9AA6 /* HistoricViewController.swift */,
 				2FCA50B21F2FF533005C9AA6 /* Main.storyboard */,
 				2FCA50B51F2FF533005C9AA6 /* Assets.xcassets */,
 				2FCA50B71F2FF533005C9AA6 /* LaunchScreen.storyboard */,
 				2FCA50BA1F2FF533005C9AA6 /* Info.plist */,
 				2FCA50DC1F30FC0E005C9AA6 /* DataManager.swift */,
 				2FCA50DE1F30FCD6005C9AA6 /* WeightRecord.swift */,
+				2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */,
 			);
 			path = MedSampleApp;
 			sourceTree = "<group>";
@@ -268,11 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FCA50B11F2FF533005C9AA6 /* SecondViewController.swift in Sources */,
+				2FCA50B11F2FF533005C9AA6 /* HistoricViewController.swift in Sources */,
 				2FCA50DF1F30FCD6005C9AA6 /* WeightRecord.swift in Sources */,
 				2FCA50DD1F30FC0E005C9AA6 /* DataManager.swift in Sources */,
 				2FCA50AD1F2FF533005C9AA6 /* AppDelegate.swift in Sources */,
 				2FCA50AF1F2FF533005C9AA6 /* InputViewController.swift in Sources */,
+				2FCA50E11F3168CE005C9AA6 /* WeightTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
