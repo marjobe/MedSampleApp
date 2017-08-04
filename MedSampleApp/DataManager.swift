@@ -12,13 +12,21 @@ final class DataManager {
 
     // Unique DataManager (singleton).
     static let instance = DataManager()
+    // Constants for data persistence.
+    private let healthDataKey = "SavedHealthData"
+    private let defaults = UserDefaults.standard
 
     // Historic values: min, max and last values.
     private var historic: [WeightRecord]
 
     private init() {
-        // ToDo: save and restore historic from UserDefaults
-        historic = []
+        // Try to get historic values from persistent data.
+        if let healthDataObject = defaults.value(forKey: healthDataKey) as? NSData {
+            self.historic = NSKeyedUnarchiver.unarchiveObject(with: healthDataObject as Data) as! [WeightRecord]
+        } else {
+            // No previous persistent data, set default values.
+            self.historic = []
+        }
     }
 
     func insertNewRecord(date: Date, weight: Double) {
@@ -27,5 +35,10 @@ final class DataManager {
 
     func historicRecords() -> [WeightRecord] {
         return historic
+    }
+
+    func saveHealthData() {
+        // Persist data using 'UserDefaults' module.
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: historic), forKey: healthDataKey)
     }
 }

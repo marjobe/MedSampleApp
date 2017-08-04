@@ -8,14 +8,24 @@
 
 import Foundation
 
-class WeightRecord {
+class WeightRecord: NSObject, NSCoding {
+
     // Data
-    var date : Date
-    var weight : Double
+    var date : Date!
+    var weight : Double!
 
     init(date: Date, weight: Double) {
         self.date = date
         self.weight = weight
     }
 
+    required init?(coder aDecoder: NSCoder){
+        self.date = aDecoder.decodeObject(forKey: "date") as! Date
+        self.weight = aDecoder.decodeObject(forKey: "weight") as! Double
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(weight, forKey: "weight")
+    }
 }
