@@ -10,7 +10,7 @@ import UIKit
 
 class HistoricViewController: UITableViewController {
 
-    //
+    // Controller: DataManager
     let dataManager = DataManager.instance
     
     override func viewDidLoad() {

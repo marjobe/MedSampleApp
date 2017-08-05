@@ -10,7 +10,7 @@ import UIKit
 
 class WeightTableViewCell: UITableViewCell {
 
-    //Mark: properties
+    // UI outlets.
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var date: UILabel!
     

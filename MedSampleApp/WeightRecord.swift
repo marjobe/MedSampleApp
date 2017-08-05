@@ -14,16 +14,19 @@ class WeightRecord: NSObject, NSCoding {
     var date : Date!
     var weight : Double!
 
+    // Default constructor.
     init(date: Date, weight: Double) {
         self.date = date
         self.weight = weight
     }
 
+    // Constructor for decoder.
     required init?(coder aDecoder: NSCoder){
         self.date = aDecoder.decodeObject(forKey: "date") as! Date
         self.weight = aDecoder.decodeObject(forKey: "weight") as! Double
     }
-    
+
+    // Function used to encode data.
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(date, forKey: "date")
         aCoder.encode(weight, forKey: "weight")
