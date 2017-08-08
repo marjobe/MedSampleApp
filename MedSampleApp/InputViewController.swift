@@ -30,7 +30,7 @@ class InputViewController: UIViewController {
         // Set default weight to show.
         weight.text = "0"
         // ToDo: get the unit from settings.
-        weightUnit.text = "kg"
+        weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
     }
 
     override func didReceiveMemoryWarning() {

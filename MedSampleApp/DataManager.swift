@@ -13,32 +13,43 @@ final class DataManager {
     // Unique DataManager (singleton).
     static let instance = DataManager()
     // Constants for data persistence.
-    private let healthDataKey = "SavedHealthData"
     private let defaults = UserDefaults.standard
+    private let healthDataKey = "SavedHealthData"
+    private let weightUnitKey = "SavedWeightUnitData"
 
     // Historic values: min, max and last values.
     private var historic: [WeightRecord]
+    private var weightUnitData: WeightUnitData
 
     private init() {
         // Try to get historic values from persistent data.
-        if let healthDataObject = defaults.value(forKey: healthDataKey) as? NSData {
+        if let healthDataObject = defaults.value(forKey: healthDataKey) as? NSData,
+           let weightUnitData = defaults.value(forKey: weightUnitKey) as? NSData {
             self.historic = NSKeyedUnarchiver.unarchiveObject(with: healthDataObject as Data) as! [WeightRecord]
+            self.weightUnitData = NSKeyedUnarchiver.unarchiveObject(with: weightUnitData as Data) as! WeightUnitData
         } else {
             // No previous persistent data, set default values.
             self.historic = []
+            self.weightUnitData = WeightUnitData()
         }
     }
 
     func insertNewRecord(date: Date, weight: Double) {
-        historic.append(WeightRecord(date: date, weight: weight))
+        historic.append(WeightRecord(date: date,
+            weight: WeightUnitData.convertToKg(value: weight, from: weightUnitData.getCurrentUnit())))
     }
 
     func historicRecords() -> [WeightRecord] {
         return historic
     }
 
+    func getWeightUnitData() -> WeightUnitData {
+        return weightUnitData
+    }
+
     func saveHealthData() {
         // Persist data using 'UserDefaults' module.
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: historic), forKey: healthDataKey)
+        defaults.set(NSKeyedArchiver.archivedData(withRootObject: weightUnitData), forKey: weightUnitKey)
     }
 }
