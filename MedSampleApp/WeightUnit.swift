@@ -72,7 +72,7 @@ class WeightUnitData: NSObject, NSCoding {
 
     // Change current unit given a index of getAllUnits() array.
     func changeCurrentUnit(unitIndex: Int) {
-        if unitIndex > 0 &&
+        if unitIndex >= 0 &&
             unitIndex < WeightUnitData.Units.count &&
             unitIndex != self.value {
             self.value = unitIndex
@@ -83,4 +83,10 @@ class WeightUnitData: NSObject, NSCoding {
     func getCurrentUnit() -> WeightUnit {
         return WeightUnitData.Units[value]
     }
+
+    // Returns the actual weight unit.
+    func getCurrentUnit() -> Int {
+        return value
+    }
+
 }

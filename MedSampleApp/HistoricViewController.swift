@@ -53,9 +53,11 @@ class HistoricViewController: UITableViewController {
             cell.date.text = formatter.string(from: weightData.date)
             // Fill weight
             let weightValue = WeightUnitData.convertFromKg(valueInKg: weightData.weight,
-                                                           to: dataManager.getWeightUnitData().getCurrentUnit())
-            cell.weight.text = String(weightValue)
-            
+                                to: dataManager.getWeightUnitData().getCurrentUnit())
+            cell.weight.text = String(round(weightValue*100)/100)
+            // Fill weight unit.
+            cell.weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
+
             // Return filled cell.
             return cell
         } else {

@@ -12,7 +12,7 @@ class WeightTableViewCell: UITableViewCell {
 
     // UI outlets.
     @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var weightUnit: UILabel!
     @IBOutlet weak var date: UILabel!
-    
 
 }

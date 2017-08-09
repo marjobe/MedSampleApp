@@ -29,8 +29,6 @@ class InputViewController: UIViewController {
         self.date.text = result
         // Set default weight to show.
         weight.text = "0"
-        // ToDo: get the unit from settings.
-        weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +36,13 @@ class InputViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Reload data every time that the view is visited.
+        weight.text = "0"
+        weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
+    }
+    
     @IBAction func saveWeight(_ sender: UIButton) {
         // Gets the double number from user text input and insert it on the model.
         if let text = weight.text {
@@ -46,6 +51,8 @@ class InputViewController: UIViewController {
         }
         // Hide keyboard
         weight.resignFirstResponder()
+        // Clear weight.
+        weight.text = "0"
     }
 
 }
