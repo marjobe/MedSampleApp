@@ -47,7 +47,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     // Delegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        viewTitle.text = weightUnitPickerData[row]
         dataManager.getWeightUnitData().changeCurrentUnit(unitIndex: row)
     }
 
