@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         self.weightUnitPicker.delegate = self
         self.weightUnitPicker.dataSource = self
-        weightUnitPicker.selectRow(dataManager.getWeightUnitData().getCurrentUnit(), inComponent: 0, animated: true)
+        weightUnitPicker.selectRow(dataManager.getWeightUnitRow(), inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     // Delegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        dataManager.getWeightUnitData().changeCurrentUnit(unitIndex: row)
+        dataManager.setWeightUnit(byRow: row)
     }
 
 }

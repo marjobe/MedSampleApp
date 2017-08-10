@@ -42,7 +42,7 @@ class InputViewController: UIViewController {
         // Set default weight to show.
         weight.text = "0"
         // Set current weight unit.
-        weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
+        weightUnit.text = dataManager.getWeightUnitName()
     }
 
     @IBAction func saveWeight(_ sender: UIButton) {

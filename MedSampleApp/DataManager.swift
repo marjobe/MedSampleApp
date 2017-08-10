@@ -43,8 +43,20 @@ final class DataManager {
         return historic
     }
 
-    func getWeightUnitData() -> WeightUnitData {
-        return weightUnitData
+    func getWeightUnitName() -> String {
+        return weightUnitData.getCurrentUnit().shortName
+    }
+
+    func getWeightUnitRow() -> Int {
+        return weightUnitData.getCurrentUnitRow()
+    }
+
+    func setWeightUnit(byRow: Int) {
+        weightUnitData.changeCurrentUnit(unitIndex: byRow)
+    }
+
+    func getWeightForCurrUnit(valueInKg: Double) -> Double {
+        return WeightUnitData.convertFromKg(valueInKg: valueInKg, to: weightUnitData.getCurrentUnit())
     }
 
     func saveHealthData() {

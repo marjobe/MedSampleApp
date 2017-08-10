@@ -10,7 +10,7 @@ import Foundation
 
 class WeightRecord: NSObject, NSCoding {
 
-    // Data
+    // Data. Note: weight is always stored in Kg.
     var date : Date!
     var weight : Double!
 

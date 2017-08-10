@@ -52,11 +52,10 @@ class HistoricViewController: UITableViewController {
             formatter.dateFormat = "yyyy/MM/dd hh:mm"
             cell.date.text = formatter.string(from: weightData.date)
             // Fill weight
-            let weightValue = WeightUnitData.convertFromKg(valueInKg: weightData.weight,
-                                to: dataManager.getWeightUnitData().getCurrentUnit())
+            let weightValue = dataManager.getWeightForCurrUnit(valueInKg: weightData.weight)
             cell.weight.text = String(round(weightValue*100)/100)
-            // Fill weight unit.
-            cell.weightUnit.text = dataManager.getWeightUnitData().getCurrentUnit().shortName
+            // Fill weight unit rounded in 2 decimals.
+            cell.weightUnit.text = dataManager.getWeightUnitName()
 
             // Return filled cell.
             return cell
