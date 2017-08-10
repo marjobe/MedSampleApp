@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     // Controller: DataManager
     let dataManager = DataManager.instance
-    var weightUnitPickerData = WeightUnitData.getAllUnits()
+    let weightUnitPickerData = DataManager.getWeightUnits()
     // UI outlets.
     @IBOutlet weak var viewTitle: UILabel!
     @IBOutlet weak var weightUnitTitle: UILabel!

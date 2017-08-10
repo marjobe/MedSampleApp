@@ -16,11 +16,11 @@ final class DataManager {
     private let defaults = UserDefaults.standard
     private let healthDataKey = "SavedHealthData"
     private let weightUnitKey = "SavedWeightUnitData"
-
     // Historic values: min, max and last values.
     private var historic: [WeightRecord]
     private var weightUnitData: WeightUnitData
 
+    // Default constructor.
     private init() {
         // Try to get historic values from persistent data.
         if let healthDataObject = defaults.value(forKey: healthDataKey) as? NSData,
@@ -34,6 +34,9 @@ final class DataManager {
         }
     }
 
+
+    /* Records management section. */
+
     func insertNewRecord(date: Date, weight: Double) {
         historic.append(WeightRecord(date: date,
             weight: WeightUnitData.convertToKg(value: weight, from: weightUnitData.getCurrentUnit())))
@@ -41,6 +44,13 @@ final class DataManager {
 
     func historicRecords() -> [WeightRecord] {
         return historic
+    }
+
+
+    /* Weight section. */
+
+    public static func getWeightUnits() -> [String] {
+        return WeightUnitData.getAllUnits()
     }
 
     func getWeightUnitName() -> String {
@@ -59,9 +69,13 @@ final class DataManager {
         return WeightUnitData.convertFromKg(valueInKg: valueInKg, to: weightUnitData.getCurrentUnit())
     }
 
+
+    /* Persistence section. */
+
     func saveHealthData() {
         // Persist data using 'UserDefaults' module.
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: historic), forKey: healthDataKey)
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: weightUnitData), forKey: weightUnitKey)
     }
+
 }
