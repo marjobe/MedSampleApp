@@ -24,13 +24,15 @@ class WeightUnit {
 
 class WeightUnitData: NSObject, NSCoding {
 
-    // Constants.
+    // Constants for Kg and Lb weight units.
     static private let Kg = WeightUnit(name: "Kilograms", shortName: "Kg", rateConversionFromKg: 1)
     static private let Lb = WeightUnit(name: "Pounds", shortName: "Lbs", rateConversionFromKg: 2.20462)
+    // Units: collection of all weight units.
     static private let Units = [Kg, Lb]
+    // UnitShortNames: collection of all weight unit names.
     static private let UnitShortNames = WeightUnitData.Units.map({wu in wu.shortName})
 
-    // Current weight unit indicated by row in Units collection.
+    // Current weight unit indicated by row in 'Units' collection.
     private var rowValue : Int!
 
     // Returns all weight units.
@@ -49,7 +51,7 @@ class WeightUnitData: NSObject, NSCoding {
     }
 
     // Default constructor.
-    init(unitIndex: Int = WeightUnitData.UnitShortNames.index(of: "Kg")!) {
+    init(unitIndex: Int = 0) {
         self.rowValue = unitIndex
     }
 
@@ -63,15 +65,8 @@ class WeightUnitData: NSObject, NSCoding {
         aCoder.encode(self.rowValue, forKey: "unit")
     }
 
-    // Change current unit given a unit name that exists in getAllUnits() array.
-    func changeCurrentUnit(unitName: String) {
-        if let index = WeightUnitData.UnitShortNames.index(of: unitName) {
-            changeCurrentUnit(unitIndex: index)
-        }
-    }
-
     // Change current unit given a index of getAllUnits() array.
-    func changeCurrentUnit(unitIndex: Int) {
+    public func changeCurrentUnit(unitIndex: Int) {
         if unitIndex >= 0 &&
             unitIndex < WeightUnitData.Units.count &&
             unitIndex != self.rowValue {
@@ -80,12 +75,12 @@ class WeightUnitData: NSObject, NSCoding {
     }
 
     // Returns the actual weight unit.
-    func getCurrentUnit() -> WeightUnit {
+    public func getCurrentUnit() -> WeightUnit {
         return WeightUnitData.Units[self.rowValue]
     }
 
     // Returns the actual weight unit.
-    func getCurrentUnitRow() -> Int {
+    public func getCurrentUnitRow() -> Int {
         return self.rowValue
     }
 
