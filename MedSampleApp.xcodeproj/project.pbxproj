@@ -20,6 +20,9 @@
 		2FCA50E11F3168CE005C9AA6 /* WeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */; };
 		2FCA50E31F37FE09005C9AA6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50E21F37FE09005C9AA6 /* SettingsViewController.swift */; };
 		2FCA50E51F381252005C9AA6 /* WeightUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50E41F381252005C9AA6 /* WeightUnit.swift */; };
+		2FCA50E81F3D31CA005C9AA6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCA50E71F3D31CA005C9AA6 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2FCA50EB1F3D32C6005C9AA6 /* WeightModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50E91F3D32C6005C9AA6 /* WeightModel.xcdatamodeld */; };
+		2FCA50ED1F40E2D8005C9AA6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA50EC1F40E2D8005C9AA6 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightTableViewCell.swift; sourceTree = "<group>"; };
 		2FCA50E21F37FE09005C9AA6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FCA50E41F381252005C9AA6 /* WeightUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightUnit.swift; sourceTree = "<group>"; };
+		2FCA50E71F3D31CA005C9AA6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2FCA50EA1F3D32C6005C9AA6 /* WeightModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeightModel.xcdatamodel; sourceTree = "<group>"; };
+		2FCA50EC1F40E2D8005C9AA6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCA50E81F3D31CA005C9AA6 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +100,7 @@
 				2FCA50C21F2FF533005C9AA6 /* MedSampleAppTests */,
 				2FCA50CD1F2FF533005C9AA6 /* MedSampleAppUITests */,
 				2FCA50AA1F2FF533005C9AA6 /* Products */,
+				2FCA50E61F3D31CA005C9AA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +129,8 @@
 				2FCA50E01F3168CE005C9AA6 /* WeightTableViewCell.swift */,
 				2FCA50E21F37FE09005C9AA6 /* SettingsViewController.swift */,
 				2FCA50E41F381252005C9AA6 /* WeightUnit.swift */,
+				2FCA50E91F3D32C6005C9AA6 /* WeightModel.xcdatamodeld */,
+				2FCA50EC1F40E2D8005C9AA6 /* CoreDataManager.swift */,
 			);
 			path = MedSampleApp;
 			sourceTree = "<group>";
@@ -141,6 +151,14 @@
 				2FCA50D01F2FF533005C9AA6 /* Info.plist */,
 			);
 			path = MedSampleAppUITests;
+			sourceTree = "<group>";
+		};
+		2FCA50E61F3D31CA005C9AA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FCA50E71F3D31CA005C9AA6 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +303,8 @@
 				2FCA50AD1F2FF533005C9AA6 /* AppDelegate.swift in Sources */,
 				2FCA50AF1F2FF533005C9AA6 /* InputViewController.swift in Sources */,
 				2FCA50E11F3168CE005C9AA6 /* WeightTableViewCell.swift in Sources */,
+				2FCA50ED1F40E2D8005C9AA6 /* CoreDataManager.swift in Sources */,
+				2FCA50EB1F3D32C6005C9AA6 /* WeightModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +569,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FCA50E91F3D32C6005C9AA6 /* WeightModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FCA50EA1F3D32C6005C9AA6 /* WeightModel.xcdatamodel */,
+			);
+			currentVersion = 2FCA50EA1F3D32C6005C9AA6 /* WeightModel.xcdatamodel */;
+			path = WeightModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2FCA50A11F2FF533005C9AA6 /* Project object */;
 }

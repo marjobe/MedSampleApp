@@ -13,8 +13,8 @@ final class DataManager {
     // Unique DataManager (singleton).
     static let instance = DataManager()
     // Constants for data persistence.
+    private let coreDataManager = CoreDataManager.instance
     private let defaults = UserDefaults.standard
-    private let healthDataKey = "SavedHealthData"
     private let weightUnitKey = "SavedWeightUnitData"
     // Historic values: min, max and last values.
     private var historic: [WeightRecord]
@@ -23,23 +23,26 @@ final class DataManager {
     // Default constructor.
     private init() {
         // Try to get historic values from persistent data.
-        if let healthDataObject = defaults.value(forKey: healthDataKey) as? NSData,
-           let weightUnitData = defaults.value(forKey: weightUnitKey) as? NSData {
-            self.historic = NSKeyedUnarchiver.unarchiveObject(with: healthDataObject as Data) as! [WeightRecord]
+        if let weightUnitData = defaults.value(forKey: weightUnitKey) as? NSData {
             self.weightUnitData = NSKeyedUnarchiver.unarchiveObject(with: weightUnitData as Data) as! WeightUnitData
         } else {
             // No previous persistent data, set default values.
-            self.historic = []
             self.weightUnitData = WeightUnitData()
         }
+        // Restores all the WeightRecord's saved.
+        historic = coreDataManager.getWeightRecords()
     }
 
 
     /* Records management section. */
 
     func insertNewRecord(date: Date, weight: Double) {
-        historic.append(WeightRecord(date: date,
-            weight: WeightUnitData.convertToKg(value: weight, from: weightUnitData.getCurrentUnit())))
+        let wr = WeightRecord(date: date,
+                              weight: WeightUnitData.convertToKg(value: weight, from: weightUnitData.getCurrentUnit()))
+        // Adds it to the current list.
+        historic.append(wr)
+        // Persists the new entry in CoreData model.
+        coreDataManager.storeWeightRecord(record: wr)
     }
 
     func historicRecords() -> [WeightRecord] {
@@ -72,9 +75,8 @@ final class DataManager {
 
     /* Persistence section. */
 
-    func saveHealthData() {
-        // Persist data using 'UserDefaults' module.
-        defaults.set(NSKeyedArchiver.archivedData(withRootObject: historic), forKey: healthDataKey)
+    func saveSettings() {
+        // Saves settings data.
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: weightUnitData), forKey: weightUnitKey)
     }
 
