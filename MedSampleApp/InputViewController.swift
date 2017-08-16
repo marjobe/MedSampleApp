@@ -19,7 +19,9 @@ class InputViewController: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var weightUnit: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    
+    // Current weight value.
+    private var currentWeight = 0.0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set a timer to update the date and time text labels.
@@ -32,7 +34,6 @@ class InputViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -40,21 +41,33 @@ class InputViewController: UIViewController {
         // Set date and time to show.
         updateTime()
         // Set default weight to show.
-        weight.text = "0"
+        weight.text = ""
+        // Disable save button.
+        saveButton.isEnabled = false
         // Set current weight unit.
         weightUnit.text = dataManager.getWeightUnitName()
     }
 
+    @IBAction func editingChanged(_ sender: Any) {
+        // Checks that entry weight is a positive valid double value.
+        if let text = weight.text,
+           let value = Double(text),
+           value > 0
+        {
+            currentWeight = value
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
+    }
+
     @IBAction func saveWeight(_ sender: UIButton) {
         // Gets the double number from user text input and insert it on the model.
-        if let text = weight.text {
-            let doubleValue = Double(text)!
-            dataManager.insertNewRecord(date: Date(), weight: doubleValue)
-        }
+        dataManager.insertNewRecord(date: Date(), weight: currentWeight)
         // Hide keyboard
         weight.resignFirstResponder()
         // Clear weight.
-        weight.text = "0"
+        weight.text = ""
     }
 
     func updateTime() {
