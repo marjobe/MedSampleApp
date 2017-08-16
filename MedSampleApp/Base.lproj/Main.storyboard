@@ -200,7 +200,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="3dk-ru-1Vd" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="3dk-ru-1Vd" userLabel="Settings"/>
                     <connections>
                         <outlet property="viewTitle" destination="Cov-8a-mvB" id="q2f-RF-DBc"/>
                         <outlet property="weightUnitPicker" destination="Fau-km-8X0" id="5y7-A3-Pg2"/>
@@ -235,5 +235,6 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="settings" width="23" height="23"/>
     </resources>
 </document>
